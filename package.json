@@ -1,18 +1,23 @@
 {
   "name": "nestjs-fauna",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The ultimate Fauna Db module for Nestjs",
+  "author": "Nyoman Sunima <nyomansunima@gmail.com>",
+  "license": "MIT",
   "keywords": [
     "nestjs",
-    "faunadb"
+    "faunadb",
+    "fauna",
+    "module"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*",
+    "*.md"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc"
   },
-  "author": "Nyoman Sunima <nyomansunima@gmail.com>",
-  "license": "MIT",
   "dependencies": {
     "@nestjs/common": "^10.0.5",
     "faunadb": "^4.8.0",
@@ -31,9 +36,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lewyuburi/nestjs-faunadb"
+    "url": "https://github.com/nyomansunima/nestjs-fauna"
   },
-  "bugs": "https://github.com/lewyuburi/nestjs-faunadb",
+  "bugs": "https://github.com/nyomansunima/nestjs-fauna",
   "publishConfig": {
     "access": "public"
   }
