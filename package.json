@@ -1,6 +1,6 @@
 {
   "name": "nestjs-fauna",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The ultimate Fauna Db module for Nestjs",
   "author": "Nyoman Sunima <nyomansunima@gmail.com>",
   "license": "MIT",
@@ -12,8 +12,7 @@
   ],
   "main": "dist/index.js",
   "files": [
-    "dist/**/*",
-    "*.md"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "rimraf dist && tsc"
