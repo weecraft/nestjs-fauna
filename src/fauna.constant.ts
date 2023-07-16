@@ -1,0 +1,2 @@
+export const FAUNA_MODULE_OPTIONS = 'FAUNA_MODULE_OPTIONS'
+export const FAUNA_NAME = 'FAUNA_NAME'
