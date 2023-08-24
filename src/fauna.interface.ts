@@ -1,16 +1,12 @@
 import { ModuleMetadata } from '@nestjs/common'
-import { ClientConfig } from 'faunadb'
+import { ClientConfiguration } from 'fauna'
 
-export type FaunaModuleOptions = ClientConfig
+export type FaunaModuleOptions = ClientConfiguration
 
-interface RefQueryData extends Object {
-  id: any
-}
-
-export class QueryData<T extends Object> {
-  ref: RefQueryData
-  ts: number
-  data: T
+export class FaunaQueryData {
+  id: string
+  coll: any
+  ts: any
 }
 
 export interface FaunaModuleAsyncOptions

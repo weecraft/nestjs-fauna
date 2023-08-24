@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { Client } from 'faunadb'
+import { Client } from 'fauna'
 import { FAUNA_MODULE_OPTIONS } from './fauna.constant'
 import { FaunaModuleOptions } from './fauna.interface'
 

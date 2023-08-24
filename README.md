@@ -1,3 +1,7 @@
+# NestJS Fauna
+
+A NestJS package that provides seamless integration with FaunaDB, allowing you to interact with FaunaDB effortlessly within your NestJS applications.
+
 ![Nest.Js Fauna](https://github.com/nyomansunima/nestjs-fauna/assets/54091887/fddd548e-d5c3-46ac-8ce0-7ef49a1664e0)
 
 <!-- Shields -->
@@ -10,10 +14,6 @@
 ![GitHub](https://img.shields.io/github/license/nyomansunima/nestjs-fauna)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nyomansunima/nestjs-fauna)
 [![GitHub Super-Linter](https://github.com/nyomansunima/nestjs-fauna/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
-# NestJS Fauna
-
-A NestJS package that provides seamless integration with FaunaDB, allowing you to interact with FaunaDB effortlessly within your NestJS applications.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ npm install nestjs-fauna
 
 ## 🤖 Getting Started
 
-Before you start using this package, you need to have a FaunaDB account and a database set up. If you haven't already done this, head over to the [FaunaDB website](https://fauna.com/) and follow their instructions to get started.
+Before you start using this package, you need to have a FaunaDB account and a database set up. If you haven't already done this, head over to the [FaunaDB site](https://fauna.com/) and follow their instructions to get started.
 
 Once you have your FaunaDB credentials, you can configure the package in your NestJS application.
 
@@ -71,14 +71,30 @@ With the FaunaDB module configured, you can now inject the `FaunaService` into y
 
 ```typescript
 import { Injectable } from '@nestjs/common'
-import { FaunaService, Collection, Ref, Get } from 'nestjs-fauna'
+import { fql } from 'nestjs-fauna'
 
 @Injectable()
 export class MyService {
   constructor(private readonly faunaService: FaunaService) {}
 
   async getDocumentById(id: string): Promise<any> {
-    return this.faunaService.query(Get(Ref(Collection('my_collection'), id)))
+    // ensure you have the collection, or create a new one
+    // then execute it
+    const collectionQuery = fql`Collection.create({name: 'users'})`
+    await this.faunaService.query(collectionQuery)
+
+    // get the document from database
+    const firstDocumentQuery = fql`users.all().first()`
+    return this.faunaService.query(firstDocumentQuery)
+
+    // result will be
+    // something like this
+    {
+      id: "366172354849538082",
+      coll: users,
+      ts: Time("2023-05-30T17:33:40.220Z"),
+      // your data
+    }
   }
 
   // Add more methods to interact with FaunaDB as needed
@@ -95,8 +111,8 @@ For more information on the available query functions and how to use them, refer
 - Easy-to-use API for interacting with FaunaDB.
 - Utilizes FaunaDB's powerful query language for flexible database operations.
 - Configurable and supports multiple environments using environment variables.
-
-<br/>
+- Update using new version of FQL (version 10)
+  <br/>
 
 ## 🩷 Contributing
 

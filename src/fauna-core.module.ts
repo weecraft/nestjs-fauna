@@ -1,5 +1,4 @@
 import { Global, Module, DynamicModule } from '@nestjs/common'
-
 import { FaunaModuleAsyncOptions, FaunaModuleOptions } from './fauna.interface'
 import { FAUNA_MODULE_OPTIONS } from './fauna.constant'
 import { FaunaService } from './fauna.service'
