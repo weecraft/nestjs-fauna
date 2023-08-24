@@ -1,3 +1,7 @@
+# NestJS Fauna
+
+A NestJS package that provides seamless integration with FaunaDB, allowing you to interact with FaunaDB effortlessly within your NestJS applications.
+
 ![Nest.Js Fauna](https://github.com/nyomansunima/nestjs-fauna/assets/54091887/fddd548e-d5c3-46ac-8ce0-7ef49a1664e0)
 
 <!-- Shields -->
@@ -10,10 +14,6 @@
 ![GitHub](https://img.shields.io/github/license/nyomansunima/nestjs-fauna)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nyomansunima/nestjs-fauna)
 [![GitHub Super-Linter](https://github.com/nyomansunima/nestjs-fauna/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
-# NestJS Fauna
-
-A NestJS package that provides seamless integration with FaunaDB, allowing you to interact with FaunaDB effortlessly within your NestJS applications.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ npm install nestjs-fauna
 
 ## 🤖 Getting Started
 
-Before you start using this package, you need to have a FaunaDB account and a database set up. If you haven't already done this, head over to the [FaunaDB website](https://fauna.com/) and follow their instructions to get started.
+Before you start using this package, you need to have a FaunaDB account and a database set up. If you haven't already done this, head over to the [FaunaDB site](https://fauna.com/) and follow their instructions to get started.
 
 Once you have your FaunaDB credentials, you can configure the package in your NestJS application.
 
