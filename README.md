@@ -71,14 +71,30 @@ With the FaunaDB module configured, you can now inject the `FaunaService` into y
 
 ```typescript
 import { Injectable } from '@nestjs/common'
-import { FaunaService, Collection, Ref, Get } from 'nestjs-fauna'
+import { fql } from 'nestjs-fauna'
 
 @Injectable()
 export class MyService {
   constructor(private readonly faunaService: FaunaService) {}
 
   async getDocumentById(id: string): Promise<any> {
-    return this.faunaService.query(Get(Ref(Collection('my_collection'), id)))
+    // ensure you have the collection, or create a new one
+    // then execute it
+    const collectionQuery = fql`Collection.create({name: 'users'})`
+    await this.faunaService.query(collectionQuery)
+
+    // get the document from database
+    const firstDocumentQuery = fql`users.all().first()`
+    return this.faunaService.query(firstDocumentQuery)
+
+    // result will be
+    // something like this
+    {
+      id: "366172354849538082",
+      coll: users,
+      ts: Time("2023-05-30T17:33:40.220Z"),
+      // your data
+    }
   }
 
   // Add more methods to interact with FaunaDB as needed
@@ -95,8 +111,8 @@ For more information on the available query functions and how to use them, refer
 - Easy-to-use API for interacting with FaunaDB.
 - Utilizes FaunaDB's powerful query language for flexible database operations.
 - Configurable and supports multiple environments using environment variables.
-
-<br/>
+- Update using new version of FQL (version 10)
+  <br/>
 
 ## 🩷 Contributing
 
