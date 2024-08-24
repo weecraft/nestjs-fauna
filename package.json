@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.5",
-    "fauna": "^1.0.1",
+    "fauna": "^2.2.0",
     "rxjs": "^7.8.1"
   },
   "peerDependencies": {
